@@ -30,10 +30,7 @@ public final class GUI extends Application {
   private static UCIEngine searchEngine;
 
   private MainController controller;
-
-  /**
-   * Constructs a default instance.
-   */
+  
   public GUI() {
     if (controllerEngine == null) {
       throw new IllegalStateException("The controller engine has not been set.");
@@ -42,6 +39,7 @@ public final class GUI extends Application {
       throw new IllegalStateException("The search engine has not been set.");
     }
   }
+  
 
   /**
    * Sets the chess engines powering the GUI application.
@@ -60,9 +58,15 @@ public final class GUI extends Application {
     searchEngine.init();
   }
 
+  private static Stage primStage;
+  // A helper function for the StandardStageManager to get the stage
+  public static Stage retrieveStage() {
+	  return primStage;
+  }
   @Override
   public void start(Stage primaryStage) throws IOException {
     // To get rid of the undesired maxCellCount INFO messages.
+	this.primStage = primaryStage;
     LogManager.getLogManager().reset();
     FXMLLoader loader = new FXMLLoader();
     loader.setControllerFactory(param -> {
@@ -75,11 +79,18 @@ public final class GUI extends Application {
     Scene scene = new Scene(root);
     scene.getStylesheets().add(getClass().getResource(STYLE_PATH).toExternalForm());
     controller = loader.getController();
-    primaryStage.setScene(scene);
-    primaryStage.setTitle(TITLE);
-    primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_PATH)));
-    primaryStage.setResizable(false);
-    primaryStage.show();
+    
+    StandardStageManager ssm = StandardStageManager.getStageManager();
+    ssm.setScene(scene);
+    ssm.setTitle(TITLE);
+    ssm.addIcon(new Image(getClass().getResourceAsStream(ICON_PATH)));
+    ssm.allowResize(false);
+    ssm.showStage();
+//    primaryStage.setScene(scene);
+//    primaryStage.setTitle(TITLE);
+//    primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_PATH)));
+//    primaryStage.setResizable(false);
+//    primaryStage.show();
 
   }
 
