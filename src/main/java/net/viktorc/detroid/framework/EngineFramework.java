@@ -11,6 +11,8 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import net.viktorc.detroid.framework.gui.GUI;
+import net.viktorc.detroid.framework.gui.GUIStarter;
+import net.viktorc.detroid.framework.gui.StandardGUIStarter;
 import net.viktorc.detroid.framework.tuning.DataSetUtils;
 import net.viktorc.detroid.framework.tuning.EngineParameters;
 import net.viktorc.detroid.framework.tuning.ParameterType;
@@ -696,8 +698,13 @@ public final class EngineFramework implements Runnable {
   private void runInGUIMode() {
     try (ControllerEngine controller = factory.newControllerEngineInstance();
         UCIEngine searchEngine = factory.newEngineInstance()) {
-      GUI.setEngines(controller, searchEngine);
-      Application.launch(GUI.class);
+    	
+    GUIStarter myGuiStarter = new StandardGUIStarter();
+    // You could swap this out to be a different GUI.
+    // Now you can test out different GUIs by only changing one line of code!
+    myGuiStarter.setControllers(controller, searchEngine);
+    myGuiStarter.startGUI();
+    
     }
   }
 
