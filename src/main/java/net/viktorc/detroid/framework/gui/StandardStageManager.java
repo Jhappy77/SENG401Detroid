@@ -11,7 +11,6 @@ import javafx.scene.image.Image;
  */
 public class StandardStageManager {
 	
-	
 	  private Stage primaryStage; 
 	  private static StandardStageManager theManager;
 	  // Returns the GUI, or creates one if not done yet. Allows anywhere to access GUI
@@ -22,7 +21,7 @@ public class StandardStageManager {
 	  }
 	  
 	  private StandardStageManager() {
-		  primaryStage = GUI.retrieveStage();
+		  // do nothing
 	  }
 	  
 	  /**
@@ -48,5 +47,9 @@ public class StandardStageManager {
 	  }
 	  public void showStage() {
 		  primaryStage.show();
+	  }
+	  // Should be called if you have a stage that you want to be accessible thru this class
+	  public void setStage(Stage s) {
+		  this.primaryStage = s;
 	  }
 }

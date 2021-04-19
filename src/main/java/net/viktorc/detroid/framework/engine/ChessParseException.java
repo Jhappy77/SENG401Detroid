@@ -2,6 +2,8 @@ package net.viktorc.detroid.framework.engine;
 
 import java.text.ParseException;
 
+import net.viktorc.detroid.framework.gui.StandardStageManager;
+
 /**
  * An exception for when a piece of chess notation text such as FEN, PGN, or SAN can not be parsed due to violations of the notation
  * standards.
@@ -20,6 +22,8 @@ public class ChessParseException extends ParseException {
    */
   public ChessParseException(String desc) {
     super(desc, -1);
+    StandardStageManager ssm = StandardStageManager.getStageManager();
+    ssm.setTitle("ERROR! Reformat your chess notation");
   }
 
   /**

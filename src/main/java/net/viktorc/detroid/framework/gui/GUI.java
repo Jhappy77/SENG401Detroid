@@ -58,15 +58,9 @@ public final class GUI extends Application {
     searchEngine.init();
   }
 
-  private static Stage primStage;
-  // A helper function for the StandardStageManager to get the stage
-  public static Stage retrieveStage() {
-	  return primStage;
-  }
   @Override
   public void start(Stage primaryStage) throws IOException {
     // To get rid of the undesired maxCellCount INFO messages.
-	this.primStage = primaryStage;
     LogManager.getLogManager().reset();
     FXMLLoader loader = new FXMLLoader();
     loader.setControllerFactory(param -> {
@@ -81,16 +75,12 @@ public final class GUI extends Application {
     controller = loader.getController();
     
     StandardStageManager ssm = StandardStageManager.getStageManager();
+    ssm.setStage(primaryStage);
     ssm.setScene(scene);
     ssm.setTitle(TITLE);
     ssm.addIcon(new Image(getClass().getResourceAsStream(ICON_PATH)));
     ssm.allowResize(false);
     ssm.showStage();
-//    primaryStage.setScene(scene);
-//    primaryStage.setTitle(TITLE);
-//    primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_PATH)));
-//    primaryStage.setResizable(false);
-//    primaryStage.show();
 
   }
 
