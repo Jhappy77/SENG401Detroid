@@ -1,4 +1,4 @@
-package net.viktorc.detroid.framework.gui;
+package net.viktorc.detroid.framework.gui.standard;
 
 
 import javafx.scene.Scene;

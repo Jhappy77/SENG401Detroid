@@ -1,4 +1,4 @@
-package net.viktorc.detroid.framework.gui;
+package net.viktorc.detroid.framework.gui.standard;
 
 import java.io.IOException;
 import java.util.logging.LogManager;

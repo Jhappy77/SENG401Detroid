@@ -1,5 +1,6 @@
-package net.viktorc.detroid.framework.gui;
+package net.viktorc.detroid.framework.gui.standard;
 
+import net.viktorc.detroid.framework.gui.GUIStarter;
 import net.viktorc.detroid.framework.uci.UCIEngine;
 import net.viktorc.detroid.framework.validation.ControllerEngine;
 import javafx.application.Application;

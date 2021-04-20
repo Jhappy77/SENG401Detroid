@@ -2,7 +2,7 @@ package net.viktorc.detroid.framework.engine;
 
 import java.text.ParseException;
 
-import net.viktorc.detroid.framework.gui.StandardStageManager;
+import net.viktorc.detroid.framework.gui.standard.StandardStageManager;
 
 /**
  * An exception for when a piece of chess notation text such as FEN, PGN, or SAN can not be parsed due to violations of the notation

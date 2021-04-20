@@ -12,7 +12,6 @@ class Launcher {
 
   /**
    * The entry point for the application.
-   *
    * @param args The same as for {@link net.viktorc.detroid.framework.EngineFramework}.
    */
   public static void main(String[] args) {
